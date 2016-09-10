@@ -1,0 +1,30 @@
+WARNING: Do not look in the eyes!
+Les 1 Kernmodule IxD
+Hedwig Klamer
+
+Hardware:
+Waterpomp
+Voeding voor de waterpomp
+Relais
+Arduino Uno
+Voeding voor Arduino
+Schakelaar
+Sonar “HC-SR04 Distance Sensor Measuring”
+Bedrading
+Rubber Slang
+Materiaal om het hoofd te maken
+Glazen bak waar de installatie in komt
+
+Software:
+De arduino IDE
+
+Stappenplan aansluiting:
+Maak de rubberen slang vast aan de waterpomp zodat deze uitkomt bij de ogen van het hoofd.
+Verbouw de waterpomp zo dat je een directe toegang het tot de plus en de min van het apparaat. Dit zodat ALS je deze bedrading zou aansluiten aan de voeding deze gelijk aan zou gaan.
+Sluit de sonar aan op de Arduino Uno zodat deze kan worden uitgelezen. Zet de Sonar voor het beeld buiten het glas.
+Sluit de elektromagnetische kant van de relais aan op de Arduino’s analoge kant en sluit de andere kant aan tussen de positieve draad van de waterpomp naar zijn voeding.
+Sluit een schakelaar aan tussen de voeding van de Arduino en de Arduino zelf.
+Sluit de voedingen aan.
+
+Stappenplan codering:
+Maak een if statement voor de sonar dat als hij iets meet wat op ongeveer een halve meter afstand bevindt hij een stroomstoot geeft aan de relais die op de Arduino Uno is aangesloten.
