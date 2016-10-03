@@ -57,5 +57,16 @@ void ofApp::digitalPinChanged(const int& pinNum) {
 }
 
 void ofApp::analogPinChanged(const int& pinNum) {
+	/*
+	if (pin == PIN_POTMETER) {
+		radius = ofMap(value, 0, 1024, radius.getMin(), radius.getMax());
+	}
+	else if (pin = PIN_LDR) {
+		ofLogVerbose() "hue" << colorHue << endl;
+		ofColor newColour = ofColor(colour.get());
+		newColour.setHue(colorHue);
+		colour = newColour;
+	}*/
+	
 	ofLogNotice() << "Analog Pin " << pinNum << " value: " << arduino.getAnalog(pinNum) << endl;
 }
