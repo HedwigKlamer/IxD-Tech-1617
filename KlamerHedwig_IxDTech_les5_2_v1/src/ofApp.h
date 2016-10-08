@@ -23,4 +23,11 @@ class ofApp : public ofBaseApp{
 
 		bool drawGrid;
 		bool drawLight;
+
+private:
+	ofArduino arduino;
+	void setupArduino(const int& version);
+	void digitalPinChanged(const int& pinNum);
+	void analogPinChanged(const int& pinNum);
 };
+

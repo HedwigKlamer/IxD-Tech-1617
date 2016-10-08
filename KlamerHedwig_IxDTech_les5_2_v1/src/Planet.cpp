@@ -8,7 +8,7 @@ Planet::~Planet() {
 
 void Planet::setup(string name) {
 	planetParameterGroup.setName(name);
-	planetParameterGroup.add(rotateSpeed.set("speed", 0.0, 0.0, 9.0));
+	planetParameterGroup.add(rotateSpeed.set("speed", 0.0, 0.0, 5.0));
 	planetParameterGroup.add(distance.set("distance", 0, 0, 600));
 	planetParameterGroup.add(colour.set("colour", ofColor::grey));
 
