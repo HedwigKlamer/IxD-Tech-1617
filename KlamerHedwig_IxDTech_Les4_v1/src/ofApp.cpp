@@ -16,10 +16,11 @@ void ofApp::setup() {
 }
 
 void ofApp::update() {
+	arduino.update();
 	for (unsigned int i = 0; i < balls.size(); i++) {
 		balls[i].update();
 	}
-	arduino.update();
+	
 }
 
 void ofApp::draw() {
@@ -30,9 +31,9 @@ void ofApp::draw() {
 }
 
 void ofApp::keyPressed(int key) {
-	Ball newBall;
-	newBall.setup(speedX, speedY, radius, colour);
-	balls.push_back(newBall);
+	//Ball newBall;
+	//newBall.setup(speedX, speedY, radius, colour);
+	//balls.push_back(newBall);
 }
 
 void ofApp::mousePressed(int x, int y, int button) {
@@ -54,19 +55,14 @@ void ofApp::setupArduino(const int& version) {
 
 void ofApp::digitalPinChanged(const int& pinNum) {
 	ofLogNotice() << "Digital Pin " << pinNum << " value: " << arduino.getDigital(pinNum) << endl;
+	if (arduino.getDigital(pinNum) == 1) {
+		Ball newBall;
+		newBall.setup(speedX, speedY, radius, colour);
+		balls.push_back(newBall);
+	}
 }
 
 void ofApp::analogPinChanged(const int& pinNum) {
-	/*
-	if (pin == PIN_POTMETER) {
-		radius = ofMap(value, 0, 1024, radius.getMin(), radius.getMax());
-	}
-	else if (pin = PIN_LDR) {
-		ofLogVerbose() "hue" << colorHue << endl;
-		ofColor newColour = ofColor(colour.get());
-		newColour.setHue(colorHue);
-		colour = newColour;
-	}*/
-	
 	ofLogNotice() << "Analog Pin " << pinNum << " value: " << arduino.getAnalog(pinNum) << endl;
+	radius = arduino.getAnalog(pinNum) / 2;
 }
