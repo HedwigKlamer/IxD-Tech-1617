@@ -1,4 +1,5 @@
 #include "ofApp.h"
+//#define BOX_SIZE 500
 
 #define PIN_BUTTON 11
 #define PIN_POTMETER 1
@@ -30,6 +31,7 @@ void ofApp::update() {
 
 void ofApp::draw() {
 	gui.draw();
+	//ofDrawBox(BOX_SIZE);
 
 	for (unsigned int i = 0; i < balls.size(); i++) {
 		balls[i].draw();
