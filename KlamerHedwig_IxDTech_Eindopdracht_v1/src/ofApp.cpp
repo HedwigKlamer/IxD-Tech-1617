@@ -1,10 +1,19 @@
 #include "ofApp.h"
-
+#define PIN_RED 4
+#define PIN_GREEN 3
+#define PIN_BLUE 2
+#define PIN_POTMETER 1
 
 void ofApp::setup()
 {
-	std::string url = "http://api.openweathermap.org/data/2.5/weather?q=hilversum,nl&appid=37f584c9d170b496e7abe382b2237a5a";
+	/*ofAddListener(arduino.EInitialized, this, &ofApp::setupArduino);
 
+	arduino.connect("COM3");
+	arduino.sendFirmwareVersionRequest();
+
+	*/
+	std::string url = "http://api.openweathermap.org/data/2.5/weather?q=hilversum,nl&appid=37f584c9d170b496e7abe382b2237a5a&units=metric";
+	
 	// Now parse the JSON
 	bool parsingSuccessful = json.open(url);
 
@@ -17,18 +26,40 @@ void ofApp::setup()
 	}
 }
 
+void ofApp::update() {
+	
+}
 
 void ofApp::draw()
 {
 	ofBackground(0);
-	ofSetColor(255);
+	//ofSetColor(255);
 
-	for (Json::ArrayIndex i = 0; i < json.size(); ++i)
-	{
-		std::string weather = json["coord"][i]["weather"]["main"].asString();
-		std::string author = json["base"]["stations"]["main"][i]["temp"].asString();
-		//std::string date = json["response"]["docs"][i]["pub_date"].asString();
-		//std::string text = title + " - " + author + " (" + date + ")";
-		//ofDrawBitmapString(text, 20, i * 24 + 40);
-	}
+
+	int temp = json["main"]["temp"].asInt();
+	string weather = json["weather"][0]["main"].asString();
+
+	
 }
+
+//void ofApp::setupArduino(const int& version) {
+	
+//}
+
+//void ofApp::digitalPinChanged(const int& pinNum) {}
+	
+
+//void ofApp::analogPinChanged(const int& pinNum) {
+//	ofLogNotice() << "Analog Pin " << pinNum << " value: " << arduino.getAnalog(pinNum) << endl;
+//
+//}
+
+/*void ofApp :: setColor(int red, int green, int blue){
+	
+}
+
+void ofApp::keyPressed(int key) {
+	if (key == ' ') {
+		arduino.disconnect();
+	}
+}*/

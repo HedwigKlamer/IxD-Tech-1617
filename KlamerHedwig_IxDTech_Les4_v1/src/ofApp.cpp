@@ -1,5 +1,7 @@
 #include "ofApp.h"
-#define PIN_BUTTON 11
+#define PIN_RED 11
+#define PIN_GREEN 12
+#define PIN_BLUE 13
 #define PIN_POTMETER 1
 
 void ofApp::setup() {
