@@ -41,13 +41,11 @@ void ofApp::setupArduino(const int& version) {
 	ofAddListener(arduino.EAnalogPinChanged, this, &ofApp::analogPinChanged);
 
 }
-
-void ofApp::updateArduino() {
-	// do not send anything until the arduino has been set up
-	if (bSetupArduino) {
-		arduino.sendPwm(PIN_RED, 255);
+void ofApp::keyPressed(int key) {
+	if (key == 'r') {
+		arduino.sendPwm(PIN_RED, 255); //eerste parameter is de pin waar je waarde naartoe stuurt, tweede parameter is de waarde zelf
+		arduino.sendPwm(PIN_GREEN, 150);
 		arduino.sendPwm(PIN_BLUE, 0);
-		arduino.sendPwm(PIN_GREEN,255);
 	}
 }
 

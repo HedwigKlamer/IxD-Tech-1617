@@ -12,6 +12,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void keyPressed(int key);
 
 	bool		bSetupArduino;			// flag variable for setting up arduino once
 
@@ -20,7 +21,7 @@ private:
 	void setupArduino(const int& version);
 	void digitalPinChanged(const int& pinNum);
 	void analogPinChanged(const int& pinNum);
-	void updateArduino();
+	
 
 };
 
