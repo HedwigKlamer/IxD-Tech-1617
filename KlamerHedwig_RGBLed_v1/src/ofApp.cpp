@@ -44,7 +44,7 @@ void ofApp::setupArduino(const int& version) {
 void ofApp::keyPressed(int key) {
 	if (key == 'r') {
 		arduino.sendPwm(PIN_RED, 255); //eerste parameter is de pin waar je waarde naartoe stuurt, tweede parameter is de waarde zelf
-		arduino.sendPwm(PIN_GREEN, 150);
+		arduino.sendPwm(PIN_GREEN, 50);
 		arduino.sendPwm(PIN_BLUE, 0);
 	}
 }
