@@ -13,7 +13,6 @@ public:
 	void setup();
 	void update();
 	void draw();
-	//void setColor(int red, int green, int blue);
 	void keyPressed(int key);
 
 	bool bSetupArduino;	// flag variable for setting up arduino once

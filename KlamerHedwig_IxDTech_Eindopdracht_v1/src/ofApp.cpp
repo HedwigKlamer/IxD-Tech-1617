@@ -34,7 +34,7 @@ void ofApp::setup()
 
 void ofApp::update() {
 	arduino.update();
-
+	check.tempCheck();
 	//if (temp >= 10 && temp <= 20 &&){}
 	//check.redFade = 255;
 	//check.greenFade = 50;
