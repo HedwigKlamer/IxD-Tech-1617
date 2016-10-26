@@ -17,15 +17,6 @@ public:
 
 	bool bSetupArduino;	// flag variable for setting up arduino once
 
-	//ofxJSONElement json;
-
-	//int temp;
-	//string weather;
-	
-	//int redFade;
-	//int greenFade;
-	//int blueFade;
-
 	weatherCheck check;
 
 	float red;

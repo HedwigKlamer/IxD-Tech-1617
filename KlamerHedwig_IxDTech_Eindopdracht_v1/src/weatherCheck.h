@@ -1,5 +1,4 @@
 #pragma once
-#include "ofApp.h"
 #include "ofxJSON.h"
 
 class weatherCheck
@@ -10,7 +9,7 @@ public:
 	void tempCheck();
 
 	ofxJSONElement json;
-
+	bool parsingSuccessful;
 	string weather;
 
 	int temp;

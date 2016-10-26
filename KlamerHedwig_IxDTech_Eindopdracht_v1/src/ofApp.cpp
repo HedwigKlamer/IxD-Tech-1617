@@ -4,42 +4,23 @@
 #define PIN_BLUE 9
 
 
-void ofApp::setup()
-{
+void ofApp::setup(){
 	ofAddListener(arduino.EInitialized, this, &ofApp::setupArduino);
 
 	arduino.connect("COM3", 57600);
 	arduino.sendFirmwareVersionRequest(); \
 	bSetupArduino = false;	// flag so we setup arduino when its ready
-
-	/*
-	//JSON
-	std::string url = "http://api.openweathermap.org/data/2.5/weather?q=hilversum,nl&appid=37f584c9d170b496e7abe382b2237a5a&units=metric";
 	
-	// Now parse the JSON
-	bool parsingSuccessful = json.open(url);
-
-	if (parsingSuccessful)
-	{
-		ofLogNotice("ofApp::setup") << json.getRawString(true);
-	}
-	else {
-		ofLogNotice("ofApp::setup") << "Failed to parse JSON.";
-	}*/
-	red = 0;
-	green = 0;
-	blue = 0;
-
+	check.setup();
+		red = 0;
+		green = 0;
+		blue = 0;
 }
 
 void ofApp::update() {
 	arduino.update();
 	check.tempCheck();
-	//if (temp >= 10 && temp <= 20 &&){}
-	//check.redFade = 255;
-	//check.greenFade = 50;
-	//check.blueFade = 0;
-
+	//making the light fade in
 	if (!(red >= 255) || red == check.redFade){
 		if (red < check.redFade ) {
 			red += 0.05;
@@ -69,9 +50,6 @@ void ofApp::update() {
 
 void ofApp::draw(){
 	ofBackground(0);
-	//ofSetColor(255);
-	//temp = json["main"]["temp"].asInt();
-	//weather = json["weather"][0]["main"].asString();
 }
 
 void ofApp::setupArduino(const int& version) {
@@ -79,7 +57,7 @@ void ofApp::setupArduino(const int& version) {
 
 	// it is now safe to send commands to the Arduino
 	bSetupArduino = true;
-
+	// say what kind of output/input each pin has
 	arduino.sendDigitalPinMode(PIN_RED, ARD_PWM);
 	arduino.sendDigitalPinMode(PIN_GREEN, ARD_PWM);
 	arduino.sendDigitalPinMode(PIN_BLUE, ARD_PWM);
@@ -91,7 +69,7 @@ void ofApp::setupArduino(const int& version) {
 }
 
 void ofApp::keyPressed(int key) {
-	
+	//reset light to see the glow again
 	if (key == 'r') {
 		red = 0;
 		green = 0;
@@ -99,11 +77,11 @@ void ofApp::keyPressed(int key) {
 	}
 }
 
+
 void ofApp::digitalPinChanged(const int& pinNum) {
 	ofLogNotice() << "Digital Pin " << pinNum << " value: " << arduino.getDigital(pinNum) << endl;
 }
 
 void ofApp::analogPinChanged(const int& pinNum) {
 	ofLogNotice() << "Analog Pin " << pinNum << " value: " << arduino.getAnalog(pinNum) << endl;
-
 }
