@@ -12,6 +12,7 @@ void ofApp::setup(){
 	bSetupArduino = false;	// flag so we setup arduino when its ready
 	
 	check.setup();
+	check.draw();
 		red = 0;
 		green = 0;
 		blue = 0;

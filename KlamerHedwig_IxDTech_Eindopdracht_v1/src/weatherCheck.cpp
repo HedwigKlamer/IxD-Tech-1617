@@ -18,7 +18,7 @@ void weatherCheck::draw(){
 	//putting the online weather in variables
 	temp = json["main"]["temp"].asInt();
 	weather = json["weather"][0]["main"].asString();
-	ofLog() << "temp = " << temp;
+	ofLog() << "temp MALLE MANNEN = " << temp;
 }
 
 
@@ -29,17 +29,17 @@ void weatherCheck::tempCheck() {
 		greenFade = 50;
 		blueFade = 100;
 	}
-	if (temp >= 10 && temp < 20) {
+	else if (temp >= 10 && temp < 20) {
 		redFade = 255;
 		greenFade = 50;
 		blueFade = 0;
 	}
-	if (temp >= 20 && temp < 30) {
+	else if (temp >= 20 && temp < 30) {
 		redFade = 255;
 		greenFade = 30;
 		blueFade = 0;
 	} 
-	if (temp >= 30 && temp < 40) { 
+	else if (temp >= 30 && temp < 40) { 
 		redFade = 255;
 		greenFade = 0;
 		blueFade = 0;

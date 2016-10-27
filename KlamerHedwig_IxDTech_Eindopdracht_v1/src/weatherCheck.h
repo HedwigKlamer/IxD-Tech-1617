@@ -12,7 +12,7 @@ public:
 	bool parsingSuccessful;
 	string weather;
 
-	int temp;
+	float temp;
 	int redFade;
 	int greenFade;
 	int blueFade;
