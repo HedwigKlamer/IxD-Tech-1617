@@ -31,7 +31,7 @@ void ofApp::update() {
 
 	if (!(green >= 255) || green == check.greenFade) {
 		if (green < check.greenFade) {
-			green += 0.05;
+			green += 0.009;
 			//ofLog() << "green  = " << green;
 		} 
 	}
@@ -76,6 +76,7 @@ void ofApp::keyPressed(int key) {
 		green = 0;
 		blue = 0;
 	}
+	
 }
 
 

@@ -16,15 +16,21 @@ void weatherCheck::setup() {
 
 void weatherCheck::draw(){
 	//putting the online weather in variables
-	temp = json["main"]["temp"].asInt();
+	//temp = json["main"]["temp"].asInt();
 	weather = json["weather"][0]["main"].asString();
-	ofLog() << "temp MALLE MANNEN = " << temp;
+	//ofLog() << "temp = " << temp;
+	temp =15; //manually chance the temp var to check the light
 }
 
 
 void weatherCheck::tempCheck() {
 	//checking how warm it is and deciding with color it should have
-	if (temp >= 0 && temp < 10) {
+	if ( temp < 0) {
+		redFade = 200;
+		greenFade = 255;
+		blueFade = 255;
+	}
+	else if (temp >= 0 && temp < 10) {
 		redFade = 20;
 		greenFade = 50;
 		blueFade = 100;
