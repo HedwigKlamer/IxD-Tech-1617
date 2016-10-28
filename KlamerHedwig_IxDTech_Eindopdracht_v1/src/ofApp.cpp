@@ -5,17 +5,20 @@
 
 
 void ofApp::setup(){
+	//initializing the arduino and making it ready to use
 	ofAddListener(arduino.EInitialized, this, &ofApp::setupArduino);
-
 	arduino.connect("COM3", 57600);
 	arduino.sendFirmwareVersionRequest(); \
 	bSetupArduino = false;	// flag so we setup arduino when its ready
 	
+	//initializing the functions from class weatherCheck
 	check.setup();
 	check.draw();
-		red = 0;
-		green = 0;
-		blue = 0;
+
+	//making sure the light is of when the program start so you can see the light grow/glow
+	red = 0;
+	green = 0;
+	blue = 0;
 }
 
 void ofApp::update() {
@@ -42,7 +45,7 @@ void ofApp::update() {
 			//ofLog() << "blue = " << blue;
 		}
 	}	
-
+	//sending the variables for the RGB Led to the arduino
 	arduino.sendPwm(PIN_RED, red); //eerste parameter is de pin waar je waarde naartoe stuurt, tweede parameter is de waarde zelf
 	arduino.sendPwm(PIN_GREEN, green);
 	arduino.sendPwm(PIN_BLUE, blue);
