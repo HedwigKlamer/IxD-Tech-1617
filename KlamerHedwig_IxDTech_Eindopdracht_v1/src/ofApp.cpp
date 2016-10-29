@@ -1,3 +1,7 @@
+/*Watch a video of this code on arduino on:
+https://www.youtube.com/watch?v=WP-HZqxaNm8 */
+
+
 #include "ofApp.h"
 #define PIN_RED 11
 #define PIN_GREEN 10
