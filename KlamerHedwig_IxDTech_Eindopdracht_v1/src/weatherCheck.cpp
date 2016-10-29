@@ -24,7 +24,7 @@ void weatherCheck::draw(){
 	temp = json["main"]["temp"].asInt();
 	weather = json["weather"][0]["main"].asString();//variable is now not used but is ready for future use
 	//ofLog() << "temp = " << temp;
-	//temp =-5; //manually chance the temp var to check the light
+	//temp =13; //manually chance the temp var to check the light
 }
 
 
