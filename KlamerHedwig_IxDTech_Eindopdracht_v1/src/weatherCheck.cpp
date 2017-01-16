@@ -21,8 +21,9 @@ void weatherCheck::setup() {
 
 void weatherCheck::draw(){
 	//putting the online weather in variables
-	temp = json["main"]["temp"].asInt();
+	//temp = json["main"]["temp"].asInt();
 	weather = json["weather"][0]["main"].asString();//variable is now not used but is ready for future use
+	temp = 34;
 	//ofLog() << "temp = " << temp;
 	//temp =13; //manually chance the temp var to check the light
 }
